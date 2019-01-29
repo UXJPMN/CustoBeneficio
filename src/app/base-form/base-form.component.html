@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-card class="card">
+        <mat-form-field class="--fw">
+          <mat-select placeholder="Selecione a Unidade de Medida" [(value)]="data.measureMode">
+            <mat-option *ngFor="let unit of mUnits" [value]="unit.value">
+              {{unit.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <mat-card *ngFor="let item of itens; let i = index" class="card" [attr.data-index]="i">
+        <app-item-form [id]="i"></app-item-form>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-right">
+      <button mat-fab color="primary" (click)="addItem()">
+        <mat-icon aria-label="Button with a plus icon">add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+</div>
